@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RhoPaperの小站</title>
+    <style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f5f5f5;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 100vh;
+			margin: 0;
+		}
+		 
+		.container {
+			text-align: center;
+			background-color: #fff;
+			padding: 20px;
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+		}
+		 
+		h2 {
+			color: #333;
+		}
+		 
+		p {
+			color: #666;
+		}
+		 
+		#countdown {
+			font-weight: bold;
+			color: #ff4d4d;
+		}
+		 
+		a {
+			color: #007bff;
+			text-decoration: none;
+		}
+		 
+		a:hover {
+			text-decoration: underline;
+		}
+	</style>
+</head>
+<body>
+    <div class="container">
+        <h2>注意：本站域名已永久更改为<b>rhopaper.top</b>！</h2>
+        <p>将在 <span id="countdown">3</span> 秒后前往RhoPaperの小站</p>
+        <p>如果您不想等待，请点击 <a href="https://rhopaper.top/"  id="manual-link">这里</a> 。</p>
+    </div>
+    <script>
+		document.addEventListener('DOMContentLoaded',  function() {
+			const countdownElement = document.getElementById('countdown'); 
+			const manualLink = document.getElementById('manual-link'); 
+			let timeLeft = 2;
+		 
+			const countdownInterval = setInterval(() => {
+				if (timeLeft > 0) {
+				    countdownElement.textContent  = timeLeft;
+				    timeLeft--;
+				} else {
+				    clearInterval(countdownInterval);
+				    window.location.href  = manualLink.href; 
+				}
+			}, 1000);
+		 
+			manualLink.addEventListener('click',  function(event) {
+				event.preventDefault(); 
+				clearInterval(countdownInterval);
+				window.location.href  = manualLink.href; 
+			});
+		});
+	</script> 
+</body>
+</html>
